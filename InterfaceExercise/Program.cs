@@ -40,31 +40,37 @@ namespace InterfaceExercise
 
             //Now, create objects of your 3 classes and give their members values;
             //Creatively display and organize their values
-            List<IVehicle> vehicles = new List<IVehicle>();
             var car = new Car();
-            vehicles.Add(car);
             var truck = new Truck() { NumberOfSeats = 3, TruckBed = true, Catagory = "Big Ol Truck", Logo = "TRUCK", Make = "Ford", Model = "F250", Year = "2007" };
-            vehicles.Add(truck);
             var suv = new SUV();
-            vehicles.Add(suv);
-            foreach (var veh in vehicles)
+            var newCar = new Car() { BackSeats = false, NumberOfSeats = 21, Catagory = "Family", Logo = "Big Mac", Make = "McDonalds", Model = "Quarter Pounder", Year = "2023" };
+
+            if (CarLot.CarsInLot.Count > 0)
             {
-                if (veh.GetType() == car.GetType())
+                foreach (var c in CarLot.CarsInLot)
                 {
-                    Console.WriteLine($"{car.Year} {car.Make} {car.Model}. Logo: {car.Logo}. Type: {car.Catagory}.");
-                    Console.WriteLine($"Has back seats? {car.BackSeats}. Number of Seats: {car.NumberOfSeats}");
+                    Console.WriteLine($"{c.Year} {c.Make} {c.Model}. Logo: {c.Logo}. Type: {c.Catagory}.");
+                    Console.WriteLine($"Has back seats? {c.BackSeats}. Number of Seats: {c.NumberOfSeats}");
+                    c.Drive();
                 }
-                else if (veh.GetType() == truck.GetType())
+            }
+            if (CarLot.TrucksInLot.Count > 0)
+            {
+                foreach (var c in CarLot.TrucksInLot)
                 {
                     Console.WriteLine($"{truck.Year} {truck.Make} {truck.Model}. Logo: {truck.Logo}. Type: {truck.Catagory}.");
                     Console.WriteLine($"Has Truck Bed? {truck.TruckBed}. Number of Seats: {truck.NumberOfSeats}");
+                    c.Drive();
                 }
-                else
+            }
+            if (CarLot.SUVsInLot.Count > 0)
+            {
+                foreach (var c in CarLot.SUVsInLot)
                 {
                     Console.WriteLine($"{suv.Year} {suv.Make} {suv.Model}. Logo: {suv.Logo}. Type: {suv.Catagory}.");
                     Console.WriteLine($"Has third row of Seats? {suv.ThirdRowSeats}. Number of Seats: {suv.NumberOfSeats}");
+                    c.Drive();
                 }
-                veh.Drive();
             }
 
         }

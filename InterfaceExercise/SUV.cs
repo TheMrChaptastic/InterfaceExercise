@@ -6,6 +6,10 @@ namespace InterfaceExercise
 {
     public class SUV : IVehicle, ICompany
     {
+        public SUV()
+        {
+            CarLot.SUVsInLot.Add(this);
+        }
         public int NumberOfSeats { get; set; } = 7;
         public bool ThirdRowSeats { get; set; } = true;
         public string Model { get; set; } = "Yukon";

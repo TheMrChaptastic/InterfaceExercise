@@ -6,6 +6,10 @@ namespace InterfaceExercise
 {
     public class Car : IVehicle, ICompany
     {
+        public Car()
+        {
+            CarLot.CarsInLot.Add(this);
+        }
         public int NumberOfSeats { get; set; } = 5;
         public bool BackSeats { get; set; } = true;
         public string Model { get; set; } = "350Z";
