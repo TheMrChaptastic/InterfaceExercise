@@ -44,7 +44,7 @@ namespace InterfaceExercise
             Console.WriteLine($"{car.Year} {car.Make} {car.Model}. Logo: {car.Logo}. Type: {car.Catagory}.");
             Console.WriteLine($"Has back seats? {car.BackSeats}. Number of Seats: {car.NumberOfSeats}");
             car.Drive();
-            var truck = new Truck();
+            var truck = new Truck() { NumberOfSeats = 3, TruckBed = true, Catagory = "Big Ol Truck", Logo = "TRUCK", Make = "Ford", Model = "F250", Year = "2007" };
             Console.WriteLine($"{truck.Year} {truck.Make} {truck.Model}. Logo: {truck.Logo}. Type: {truck.Catagory}.");
             Console.WriteLine($"Has Truck Bed? {truck.TruckBed}. Number of Seats: {truck.NumberOfSeats}");
             truck.Drive();
