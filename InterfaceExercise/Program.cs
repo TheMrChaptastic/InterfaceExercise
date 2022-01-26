@@ -40,18 +40,32 @@ namespace InterfaceExercise
 
             //Now, create objects of your 3 classes and give their members values;
             //Creatively display and organize their values
+            List<IVehicle> vehicles = new List<IVehicle>();
             var car = new Car();
-            Console.WriteLine($"{car.Year} {car.Make} {car.Model}. Logo: {car.Logo}. Type: {car.Catagory}.");
-            Console.WriteLine($"Has back seats? {car.BackSeats}. Number of Seats: {car.NumberOfSeats}");
-            car.Drive();
+            vehicles.Add(car);
             var truck = new Truck() { NumberOfSeats = 3, TruckBed = true, Catagory = "Big Ol Truck", Logo = "TRUCK", Make = "Ford", Model = "F250", Year = "2007" };
-            Console.WriteLine($"{truck.Year} {truck.Make} {truck.Model}. Logo: {truck.Logo}. Type: {truck.Catagory}.");
-            Console.WriteLine($"Has Truck Bed? {truck.TruckBed}. Number of Seats: {truck.NumberOfSeats}");
-            truck.Drive();
+            vehicles.Add(truck);
             var suv = new SUV();
-            Console.WriteLine($"{suv.Year} {suv.Make} {suv.Model}. Logo: {suv.Logo}. Type: {suv.Catagory}.");
-            Console.WriteLine($"Has third row of Seats? {suv.ThirdRowSeats}. Number of Seats: {suv.NumberOfSeats}");
-            suv.Drive();
+            vehicles.Add(suv);
+            foreach (var veh in vehicles)
+            {
+                if (veh.GetType() == car.GetType())
+                {
+                    Console.WriteLine($"{car.Year} {car.Make} {car.Model}. Logo: {car.Logo}. Type: {car.Catagory}.");
+                    Console.WriteLine($"Has back seats? {car.BackSeats}. Number of Seats: {car.NumberOfSeats}");
+                }
+                else if (veh.GetType() == truck.GetType())
+                {
+                    Console.WriteLine($"{truck.Year} {truck.Make} {truck.Model}. Logo: {truck.Logo}. Type: {truck.Catagory}.");
+                    Console.WriteLine($"Has Truck Bed? {truck.TruckBed}. Number of Seats: {truck.NumberOfSeats}");
+                }
+                else
+                {
+                    Console.WriteLine($"{suv.Year} {suv.Make} {suv.Model}. Logo: {suv.Logo}. Type: {suv.Catagory}.");
+                    Console.WriteLine($"Has third row of Seats? {suv.ThirdRowSeats}. Number of Seats: {suv.NumberOfSeats}");
+                }
+                veh.Drive();
+            }
 
         }
     }
